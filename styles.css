@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  background: linear-gradient(135deg, #050505, #111111, #1a0000);
+  color: #00ffcc;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#container {
+  width: 85%;
+  max-width: 900px;
+  min-height: 500px;
+  border: 2px solid #00ffcc;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 25px #00ffcc66;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin-bottom: 20px;
+  color: #ff3131;
+  text-shadow: 0 0 10px #ff3131;
+}
+
+#welcome-screen p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #dddddd;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: 1px solid #00ffcc;
+  background: transparent;
+  color: #00ffcc;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00ffcc;
+  color: black;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+#dashBoard {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 1px solid #00ffcc;
+  border-radius: 10px;
+  background: rgba(0, 255, 204, 0.08);
+}
+
+#dashBoard span {
+  margin: 10px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+#mission-text {
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #ffde59;
+  min-height: 60px;
+}
+
+#options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+#options-container li {
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #00ffcc;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+}
+
+#options-container li:hover {
+  background: #00ffcc;
+  color: black;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+#status-message {
+  font-size: 20px;
+  color: #ff3131;
+  min-height: 30px;
+  margin-top: 20px;
+  text-shadow: 0 0 8px #ff3131;
+}
+
+#final-score {
+  margin: 20px 0;
+  font-size: 22px;
+  color: #00ffcc;
+}
+
+#end-screen button {
+  margin-top: 20px;
+}

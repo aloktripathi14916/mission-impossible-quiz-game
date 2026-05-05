@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mission Impossible</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="welcome-screen">
+        <h1>WELCOME</h1>
+        <p>Agent,buckle up....You have some challenges up your sleeves!</p>
+        <button id="start-btn">START</button>
+        <button id="characters">CHARACTERS</button>
+        <button id="modes">MODES</button>
+      </div>
+
+      <div id="game-screen" class="hidden">
+        <div id="dashBoard">
+          <span id="lives">Lives</span>
+          <span id="score">Score</span>
+          <span id="mission-num">Mission Number</span>
+          <span id="timer">Timer</span>
+        </div>
+
+        <p id="mission-text">About Mission</p>
+        <div id="options-container">
+          <!--TO BE ADDED DYNAMICALLY BY JS-->
+        </div>
+        <p id="status-message">Status</p>
+      </div>
+
+      <div id="end-screen" class="hidden">
+        <h2 id="final-result">Final Result</h2>
+        <p id="final-score">Final Score</p>
+        <button id="restart-btn">Restart</button>
+        <button id="exit-btn">Exit</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
