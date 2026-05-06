@@ -125,3 +125,17 @@ button:hover {
 #end-screen button {
   margin-top: 20px;
 }
+
+#history-list li {
+  background: rgba(255,255,255,0.08);
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+#history-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}

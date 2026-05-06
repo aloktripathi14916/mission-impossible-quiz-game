@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const finalScore = document.getElementById("final-score");
   const restartBtn = document.getElementById("restart-btn");
   const exitBtn = document.getElementById("exit-btn");
+  const historyBtn = document.getElementById("match-history");
+  const historyScreen = document.getElementById("history-screen");
+  const historyList = document.getElementById("history-list");
+  const closeHistory = document.getElementById("close-history");
 
   let missions = [];
   let score = 0;
@@ -21,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentMission = 0;
   let timeLeft = 10;
   let timeInterval;
+
+  let matchHistory = JSON.parse(localStorage.getItem("matchHistory")) || [];
 
   function decodeText(text) {
     const txt = document.createElement("textarea");
@@ -55,6 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
   startBtn.addEventListener("click", async () => {
     welcomeScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
+
+    resetGameVariables();
+
     await fetchMission();
     showMission();
     updateDashBoard();
@@ -136,6 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function endGame() {
+    saveMatchHistory();
+
     gameScreen.classList.add("hidden");
     endScreen.classList.remove("hidden");
     showFinalResult();
@@ -153,14 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
     finalScore.textContent = `Final Score = ${score} / ${missions.length}`;
   }
   restartBtn.addEventListener("click", async () => {
-    clearInterval(timeInterval);
+    resetGameVariables();
     endScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
-    currentMission = 0;
-    score = 0;
-    lives = 3;
-    timeLeft = 10;
-    statusMessage.textContent = "";
 
     await fetchMission();
     showMission();
@@ -168,7 +174,63 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   exitBtn.addEventListener("click", () => {
+    resetGameVariables();
     endScreen.classList.add("hidden");
     welcomeScreen.classList.remove("hidden");
   });
+
+  function saveMatchHistory() {
+    let matchResult;
+    if (score <= missions.length / 3) matchResult = "Defeat";
+    else if (score >= (2 * missions.length) / 3)
+      matchResult = "Perfect Victory!!!";
+    else matchResult = "Good Game";
+
+    const match = {
+      score: score,
+      total: missions.length,
+      result: matchResult,
+      time: new Date().toLocaleString(),
+    };
+    matchHistory.push(match);
+    localStorage.setItem("matchHistory", JSON.stringify(matchHistory));
+  }
+
+  historyBtn.addEventListener("click", () => {
+    welcomeScreen.classList.add("hidden");
+    historyScreen.classList.remove("hidden");
+    showHistory();
+  });
+
+  closeHistory.addEventListener("click", () => {
+    welcomeScreen.classList.remove("hidden");
+    historyScreen.classList.add("hidden");
+  });
+
+  function showHistory() {
+    historyList.innerHTML = "";
+    if (matchHistory.length == 0) {
+      historyList.textContent = "No match played yet";
+      return;
+    }
+
+    [...matchHistory].reverse().forEach((match) => {
+      const historyli = document.createElement("li");
+      historyli.innerHTML = `
+      Score: ${match.score}/${match.total} | 
+      Result: ${match.result} | 
+      Time: ${match.time}`;
+
+      historyList.appendChild(historyli);
+    });
+  }
+
+  function resetGameVariables() {
+    clearInterval(timeInterval);
+    score = 0;
+    lives = 3;
+    currentMission = 0;
+    timeLeft = 10;
+    statusMessage.textContent = "";
+  }
 });
