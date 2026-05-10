@@ -17,6 +17,50 @@
         <button id="match-history">HISTORY</button>
       </div>
 
+      <div id="character-screen" class="hidden">
+        <h1>CHARACTERS</h1>
+        <div class="character-card">
+          <h3 class="character-name">ECHO</h3>
+          <img src="images/echo.png" alt="ECHO" class="character-image" />
+          <h4 class="character-job">JOB : NEW RECRUIT</h4>
+          <p>
+            No records. No past. The agency found him before the enemies did.
+          </p>
+          <h4 class="character-skill">SKILLS : -</h4>
+          <button class="select-character">SELECT</button>
+        </div>
+
+        <div class="character-card">
+          <h3 class="character-name">ORACLE</h3>
+          <img src="images/oracle.png" alt="ORACLE" class="character-image" />
+          <h4 class="character-job">JOB : INTELLIGENCE ANALYST</h4>
+          <p>She can spot lies faster than most agents can load a weapon.</p>
+          <h4 class="character-skill">SKILLS : Removes one wrong option.</h4>
+          <button class="select-character">SELECT</button>
+        </div>
+
+        <div class="character-card">
+          <h3 class="character-name">GLITCH</h3>
+          <img src="images/glitch.png" alt="GLITCH" class="character-image" />
+          <h4 class="character-job">JOB : CYBER OPERATIVE</h4>
+          <p>Firewalls fear him. Governments deny his existence.</p>
+          <h4 class="character-skill">SKILLS : +2 seconds</h4>
+          <button class="select-character">SELECT</button>
+        </div>
+
+        <div class="character-card">
+          <h3 class="character-name">REAPER</h3>
+          <img src="images/reaper.png" alt="REAPER" class="character-image" />
+          <h4 class="character-job">JOB : FIELD OPERATIVE</h4>
+          <p>
+            The mission changes. The battlefield changes. He survives anyway.
+          </p>
+          <h4 class="character-skill">SKILLS : An extra life.</h4>
+          <button class="select-character">SELECT</button>
+        </div>
+        <button id="close-character-screen">CLOSE</button>
+      </div>
+
       <div id="history-screen" class="hidden">
         <h1>MATCH LOG</h1>
         <div>
@@ -29,6 +73,7 @@
 
       <div id="game-screen" class="hidden">
         <div id="dashBoard">
+          <span id="agent">Agent</span>
           <span id="lives">Lives</span>
           <span id="score">Score</span>
           <span id="mission-num">Mission Number</span>
